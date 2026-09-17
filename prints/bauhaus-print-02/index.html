@@ -7,7 +7,7 @@
 <meta name="description" content="Pink stacked arches on cream. Ausstellung 1923. A print-ready JPEG built to hang at 50 × 70 cm. €14.95." />
 <link rel="canonical" href="https://shop.techonni.com/prints/bauhaus-print-02/" />
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
-<link rel="stylesheet" href="../../hub.css?v=8" />
+<link rel="stylesheet" href="../../hub.css?v=9" />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
@@ -38,8 +38,8 @@
         <p class="price">€14.95</p>
         <p class="page-lead">Pink stacked arches on cream. Ausstellung 1923. A print-ready JPEG built to hang at 50 × 70 cm.</p>
         <a class="buy" id="buy-btn" href="https://shop-nu-ten-29.vercel.app/api/checkout?sku=bauhaus-02">Get the print</a>
-        <a class="buy" id="dl-btn" href="../bauhaus-print-02.svg" download="Bauhaus_Print_02.jpg" hidden>Download print</a>
-        <p id="paid-note" class="page-lead" hidden>Payment received. Download the file and print at 50 × 70 cm.</p>
+        <a class="buy" id="dl-btn" href="../bauhaus-print-02.svg" download="Bauhaus_Print_02.jpg">Download print</a>
+        <p id="paid-note" class="page-lead">Payment received. Download the file and print at 50 × 70 cm.</p>
       </div>
     </div>
     <section class="also" aria-labelledby="also-heading">
@@ -73,14 +73,7 @@
   </div>
 </footer>
 <script>
-  if (/[?&]paid=1\b/.test(location.search)) {
-    var buy = document.getElementById("buy-btn");
-    var dl = document.getElementById("dl-btn");
-    var note = document.getElementById("paid-note");
-    if (buy) buy.hidden = true;
-    if (dl) dl.hidden = false;
-    if (note) note.hidden = false;
-  }
+  if (/[?&]paid=1\b/.test(location.search)) document.body.classList.add("is-paid");
 </script>
 </body>
 </html>
