@@ -40,7 +40,6 @@ module.exports = async (req, res) => {
       line_items: [{ price: product.price, quantity: 1 }],
       success_url: origin + product.path + "?paid=1",
       cancel_url: origin + product.path,
-      payment_method_types: ["card"],
     });
     res.writeHead(303, { Location: session.url });
     res.end();
