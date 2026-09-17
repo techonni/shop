@@ -37,7 +37,9 @@
         <h1 class="page-title">Bauhaus 01</h1>
         <p class="price">€14.95</p>
         <p class="page-lead">Six orange circles, cream shadows, a blue field. A print-ready JPEG built to hang at 50 × 70 cm.</p>
-        <a class="buy" href="https://shop-nu-ten-29.vercel.app/api/checkout?sku=bauhaus-01">Get the print</a>
+        <a class="buy" id="buy-btn" href="https://shop-nu-ten-29.vercel.app/api/checkout?sku=bauhaus-01">Get the print</a>
+        <a class="buy" id="dl-btn" href="../bauhaus-print-01.jpg" download="Bauhaus_Print_01.jpg" hidden>Download print</a>
+        <p id="paid-note" class="page-lead" hidden>Payment received. Download the JPEG and print at 50 × 70 cm.</p>
       </div>
     </div>
     <section class="also" aria-labelledby="also-heading">
@@ -70,5 +72,15 @@
     <p class="copyright">© 2026 Techonni</p>
   </div>
 </footer>
+<script>
+  if (/[?&]paid=1\b/.test(location.search)) {
+    var buy = document.getElementById("buy-btn");
+    var dl = document.getElementById("dl-btn");
+    var note = document.getElementById("paid-note");
+    if (buy) buy.hidden = true;
+    if (dl) dl.hidden = false;
+    if (note) note.hidden = false;
+  }
+</script>
 </body>
 </html>
