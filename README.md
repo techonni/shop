@@ -13,4 +13,4 @@ Then in the GitHub repo: Settings → Pages → Custom domain `shop.techonni.com
 
 ## Checkout
 
-Buy buttons go to Gumroad (`https://techonni.gumroad.com`) until a product URL is set.
+Buy: [Bauhaus Print 01 on Gumroad](https://techonni.gumroad.com/l/Bauhaus01).
