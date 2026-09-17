@@ -34,7 +34,7 @@ a{color:inherit;text-decoration:none}
 .section-title{margin:0;font-size:1.25rem;font-weight:600;letter-spacing:-.02em;color:#111}
 .page-title{margin:0;font-size:clamp(1.5rem,4vw,1.875rem);font-weight:600;letter-spacing:-.025em;color:#111}
 .page-lead{margin:.75rem 0 0;font-size:1.0625rem;line-height:1.65;color:#666}
-.print-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem 1rem;justify-content:start}
+.print-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;gap:1.5rem;justify-content:start}
 .print-card{display:block}
 .print-plate{width:260px;height:260px;max-width:100%;background:#f3f3f3;border-radius:1.15rem;margin:0;padding:1.2rem;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
 .print-shot{display:block;width:168px;height:auto;max-width:168px;max-height:188px;object-fit:contain;border-radius:.65rem;box-shadow:0 14px 28px rgba(0,0,0,.22),0 2px 6px rgba(0,0,0,.1)}
@@ -46,11 +46,10 @@ a{color:inherit;text-decoration:none}
 .price{margin:.35rem 0 0;font-size:1.0625rem;font-weight:500;color:#888}
 .buy{display:inline-flex;align-items:center;justify-content:center;margin-top:1.25rem;height:2.75rem;padding:0 1.35rem;background:#111;color:#fff;font-size:.9375rem;font-weight:560;border:none;border-radius:.5rem;cursor:pointer}
 .buy:hover{opacity:.85}
-.fine{margin:1.25rem 0 0;font-size:.8125rem;line-height:1.5;color:#888}
-.details{margin:1.5rem 0 0}
-.details p{margin:0 0 .75rem;font-size:.9375rem;color:#666}
-@media(min-width:700px){
-  .print-grid{grid-template-columns:repeat(auto-fill,260px);gap:1.75rem 1.5rem}
+.also{margin-top:3.5rem}
+.also .section-title{margin-bottom:1.25rem;letter-spacing:.04em;text-transform:uppercase;font-size:.8125rem;color:#888}
+@media(min-width:900px){
+  .print-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:1.75rem 1.25rem}
+  .print-grid .print-plate{width:100%;height:auto;aspect-ratio:1;max-width:none}
+  .print-grid .print-shot{width:72%;max-width:72%;max-height:78%}
 }
-
-

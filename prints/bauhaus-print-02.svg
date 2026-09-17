@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1120" role="img" aria-label="Bauhaus 02">
+  <rect width="800" height="1120" fill="#F6F1E4"/>
+  <text x="400" y="118" text-anchor="middle" font-family="Georgia, Times New Roman, serif" font-size="72" letter-spacing="18" fill="#1a1a1a">BAUHAUS</text>
+  <text x="400" y="168" text-anchor="middle" font-family="Georgia, Times New Roman, serif" font-size="22" letter-spacing="10" fill="#3a3a48">Ausstellung 1923</text>
+  <g transform="translate(400 980)">
+    <path d="M-300 0 V-420 A300 300 0 0 1 300 0 V0 Z" fill="#F4B8D8"/>
+    <path d="M-260 0 V-420 A260 260 0 0 1 260 0 V0 Z" fill="#F29BC8"/>
+    <path d="M-220 0 V-420 A220 220 0 0 1 220 0 V0 Z" fill="#F07EBB"/>
+    <path d="M-180 0 V-420 A180 180 0 0 1 180 0 V0 Z" fill="#EE68B0"/>
+    <path d="M-140 0 V-420 A140 140 0 0 1 140 0 V0 Z" fill="#EC4FA4"/>
+    <path d="M-100 0 V-420 A100 100 0 0 1 100 0 V0 Z" fill="#F6F1E4"/>
+  </g>
+</svg>
