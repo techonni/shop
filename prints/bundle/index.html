@@ -30,9 +30,8 @@
         <p class="section-label">Full set — 17 prints</p>
         <h1 class="page-title">Bauhaus Bundle</h1>
         <p class="price">€99</p>
-        <p class="page-lead">All 17 print-ready JPEGs. Built to hang at 50 × 70 cm. One checkout. Seventeen files.</p>
+        <p class="page-lead">All 17 print-ready JPEGs. Built to hang at 50 × 70 cm. One checkout. One zip.</p>
         <p id="actions"></p>
-        <p id="downloads" hidden></p>
       </div>
     </div>
     <section class="section">
@@ -42,27 +41,62 @@
   </div>
 </main>
 <footer class="site-footer"><div class="shop-col footer-inner"><div class="social-pills"><a class="pill" href="https://x.com/techonni" target="_blank" rel="noopener noreferrer">X</a><a class="pill" href="https://t.me/EuroDeskFX" target="_blank" rel="noopener noreferrer">Telegram</a></div><p class="copyright">© 2026 Techonni</p></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <script>
 (function () {
-  var n, pad, file, href, html = "", dl = "";
+  var n, pad, file, href, html = "";
   for (n = 1; n <= 17; n++) {
     pad = n < 10 ? "0" + n : "" + n;
     file = "Bauhaus_Print_" + pad + ".jpg";
     href = n < 10 ? "../bauhaus-print-0" + n + "/" : "../bauhaus-print-" + n + "/";
     html += '<li><a class="print-card" href="' + href + '"><figure class="print-plate"><img class="print-shot" src="../' + file + '" alt="Bauhaus ' + pad + '" /></figure><p class="print-name">Bauhaus ' + pad + '</p><p class="print-meta">€14.95</p></a></li>';
-    dl += '<a class="buy" href="../' + file + '" download="' + file + '">Download ' + pad + '</a> ';
   }
   document.getElementById("set").innerHTML = html;
+
   var paid = /[?&]paid=1\b/.test(location.search);
   var box = document.getElementById("actions");
-  var downs = document.getElementById("downloads");
-  if (paid) {
-    box.innerHTML = '<p class="page-lead">Payment received. Download each print below.</p>';
-    downs.hidden = false;
-    downs.innerHTML = dl;
-  } else {
+  if (!paid) {
     box.innerHTML = '<a class="buy" href="https://shop-nu-ten-29.vercel.app/api/checkout?sku=bauhaus-bundle">Get the set</a>';
+    return;
   }
+
+  box.innerHTML = '<a class="buy" href="#" id="zip-btn">Download zip</a><p class="page-lead" id="zip-note">Payment received. One file, 17 prints.</p>';
+
+  document.getElementById("zip-btn").addEventListener("click", function (e) {
+    e.preventDefault();
+    var btn = this;
+    var note = document.getElementById("zip-note");
+    btn.textContent = "Preparing zip…";
+    var zip = new JSZip();
+    var jobs = [];
+    for (n = 1; n <= 17; n++) {
+      pad = n < 10 ? "0" + n : "" + n;
+      file = "Bauhaus_Print_" + pad + ".jpg";
+      jobs.push(
+        fetch("../" + file).then(function (res) {
+          if (!res.ok) throw new Error(res.status);
+          return res.arrayBuffer();
+        }).then((function (name) {
+          return function (buf) { zip.file(name, buf); };
+        })(file))
+      );
+    }
+    Promise.all(jobs).then(function () {
+      return zip.generateAsync({ type: "blob", compression: "DEFLATE" });
+    }).then(function (blob) {
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement("a");
+      a.href = url;
+      a.download = "Bauhaus_Bundle.zip";
+      a.click();
+      URL.revokeObjectURL(url);
+      btn.textContent = "Download zip";
+      note.textContent = "Saved Bauhaus_Bundle.zip";
+    }).catch(function () {
+      btn.textContent = "Download zip";
+      note.textContent = "Zip failed. Refresh and try again.";
+    });
+  });
 })();
 </script>
 </body>
