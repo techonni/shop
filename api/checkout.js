@@ -9,6 +9,10 @@ const PRODUCTS = {
     price: "price_1UGlwPJiiPJtcrv2e0YX7Cnh",
     path: "/prints/bauhaus-print-02/",
   },
+  "bauhaus-03": {
+    price: "price_1UGzfpJiiPJtcrv2NX8cnHmk",
+    path: "/prints/bauhaus-print-03/",
+  },
 };
 
 module.exports = async (req, res) => {
