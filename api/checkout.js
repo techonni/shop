@@ -33,7 +33,15 @@ module.exports = async (req, res) => {
   try {
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
-      automatic_payment_methods: { enabled: true },
+      payment_method_types: [
+        "card",
+        "link",
+        "bancontact",
+        "klarna",
+        "revolut_pay",
+        "amazon_pay",
+        "mb_way"
+      ],
       line_items: [{ price: product.price, quantity: 1 }],
       success_url: origin + product.path + "?paid=1",
       cancel_url: origin + product.path,
