@@ -15,9 +15,10 @@ a{color:inherit;text-decoration:none}
 .logo-link{display:inline-flex;color:#111}
 .logo-mark{display:block}
 .header-nav{display:flex;align-items:center;gap:1.5rem}
-.nav-link{font-size:.9375rem;font-weight:500;color:#111;transition:opacity .15s}
-.nav-link:hover{opacity:.55}
-.nav-link.is-current{opacity:1;text-decoration:underline;text-underline-offset:4px}
+.nav-link{font-size:.9375rem;font-weight:500;color:#111;transition:color .15s,opacity .15s}
+.nav-link:hover{opacity:.45}
+.nav-link.is-current{color:#888;opacity:1;text-decoration:none}
+.nav-link.is-current:hover{color:#666}
 .site-footer{padding:3rem 0 4rem}
 .footer-inner{display:flex;flex-direction:column;gap:1.25rem}
 .social-pills{display:flex;flex-wrap:wrap;gap:.5rem}
