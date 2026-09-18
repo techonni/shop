@@ -1,5 +1,4 @@
 const Stripe = require("stripe");
-
 const PRODUCTS = {
   "bauhaus-01": { price: "price_1UGlwNJiiPJtcrv2C3NEqmOa", path: "/prints/bauhaus-print-01/" },
   "bauhaus-02": { price: "price_1UGlwPJiiPJtcrv2e0YX7Cnh", path: "/prints/bauhaus-print-02/" },
@@ -9,8 +8,10 @@ const PRODUCTS = {
   "bauhaus-06": { price: "price_1UGzsTJiiPJtcrv2fj5Gl0CJ", path: "/prints/bauhaus-print-06/" },
   "bauhaus-07": { price: "price_1UGzsUJiiPJtcrv2rpyzsmWJ", path: "/prints/bauhaus-print-07/" },
   "bauhaus-08": { price: "price_1UGzsVJiiPJtcrv2Si7tWVeP", path: "/prints/bauhaus-print-08/" },
+  "bauhaus-09": { price: "price_1UGzy0JiiPJtcrv28ZYWjoNm", path: "/prints/bauhaus-print-09/" },
+  "bauhaus-10": { price: "price_1UGzy1JiiPJtcrv2epQlLCv8", path: "/prints/bauhaus-print-10/" },
+  "bauhaus-11": { price: "price_1UGzy1JiiPJtcrv23mE7WFxc", path: "/prints/bauhaus-print-11/" },
 };
-
 module.exports = async (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   if (req.method === "OPTIONS") { res.status(204).end(); return; }
@@ -33,7 +34,5 @@ module.exports = async (req, res) => {
     });
     res.writeHead(303, { Location: session.url });
     res.end();
-  } catch (err) {
-    res.status(500).send(err.message || "Stripe error");
-  }
+  } catch (err) { res.status(500).send(err.message || "Stripe error"); }
 };
