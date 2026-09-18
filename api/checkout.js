@@ -26,8 +26,8 @@ module.exports = async (req, res) => {
   const sku = String((req.query && req.query.sku) || "");
   const product = PRODUCTS[sku];
   if (!product) { res.status(400).send("Unknown product"); return; }
-  const key = process.env.STRIPE_SECRET_KEY;
-  if (!key) { res.status(500).send("Missing STRIPE_SECRET_KEY"); return; }
+  const key = process.env.STRIPE_LIVE_KEY || process.env.STRIPE_SECRET_KEY;
+  if (!key) { res.status(500).send("Missing STRIPE_LIVE_KEY"); return; }
   const stripe = new Stripe(key);
   const origin = product.origin || "https://shop.techonni.com";
   try {
