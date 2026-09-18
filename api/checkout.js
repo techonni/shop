@@ -11,6 +11,9 @@ const PRODUCTS = {
   "bauhaus-09": { price: "price_1UGzy0JiiPJtcrv28ZYWjoNm", path: "/prints/bauhaus-print-09/" },
   "bauhaus-10": { price: "price_1UGzy1JiiPJtcrv2epQlLCv8", path: "/prints/bauhaus-print-10/" },
   "bauhaus-11": { price: "price_1UGzy1JiiPJtcrv23mE7WFxc", path: "/prints/bauhaus-print-11/" },
+  "bauhaus-12": { price: "price_1UH0FYJiiPJtcrv2h0UvOG3L", path: "/prints/bauhaus-print-12/" },
+  "bauhaus-13": { price: "price_1UH0FYJiiPJtcrv2HsRKCYjA", path: "/prints/bauhaus-print-13/" },
+  "bauhaus-14": { price: "price_1UH0FZJiiPJtcrv22vsFF2nn", path: "/prints/bauhaus-print-14/" },
 };
 module.exports = async (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
