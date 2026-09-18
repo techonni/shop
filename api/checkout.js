@@ -6,25 +6,19 @@ const PRODUCTS = {
   "bauhaus-03": { price: "price_1UGzfpJiiPJtcrv2NX8cnHmk", path: "/prints/bauhaus-print-03/" },
   "bauhaus-04": { price: "price_1UGzlRJiiPJtcrv2O4RpTCSp", path: "/prints/bauhaus-print-04/" },
   "bauhaus-05": { price: "price_1UGzlSJiiPJtcrv24mFsEP4t", path: "/prints/bauhaus-print-05/" },
+  "bauhaus-06": { price: "price_1UGzsTJiiPJtcrv2fj5Gl0CJ", path: "/prints/bauhaus-print-06/" },
+  "bauhaus-07": { price: "price_1UGzsUJiiPJtcrv2rpyzsmWJ", path: "/prints/bauhaus-print-07/" },
+  "bauhaus-08": { price: "price_1UGzsVJiiPJtcrv2Si7tWVeP", path: "/prints/bauhaus-print-08/" },
 };
 
 module.exports = async (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
-  if (req.method === "OPTIONS") {
-    res.status(204).end();
-    return;
-  }
+  if (req.method === "OPTIONS") { res.status(204).end(); return; }
   const sku = String((req.query && req.query.sku) || "");
   const product = PRODUCTS[sku];
-  if (!product) {
-    res.status(400).send("Unknown product");
-    return;
-  }
+  if (!product) { res.status(400).send("Unknown product"); return; }
   const key = process.env.STRIPE_SECRET_KEY;
-  if (!key) {
-    res.status(500).send("Missing STRIPE_SECRET_KEY");
-    return;
-  }
+  if (!key) { res.status(500).send("Missing STRIPE_SECRET_KEY"); return; }
   const stripe = new Stripe(key);
   const origin = "https://shop.techonni.com";
   try {
