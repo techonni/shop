@@ -18,7 +18,12 @@ const PRODUCTS = {
   "bauhaus-16": { price: "price_1UH0LDJiiPJtcrv2nlGxZyfu", origin: "https://shop.techonni.com", path: "/prints/bauhaus-print-16/" },
   "bauhaus-17": { price: "price_1UH0LDJiiPJtcrv2lTpJTHuc", origin: "https://shop.techonni.com", path: "/prints/bauhaus-print-17/" },
   "bauhaus-bundle": { price: "price_1UH0OPJiiPJtcrv2M0HbXiY4", origin: "https://shop.techonni.com", path: "/prints/bundle/" },
-  "fx-vip": { price: "price_1UH1BZJiiPJtcrv2SnMq1S99", origin: "https://fx.techonni.com", path: "/vip/" }
+  "fx-vip": {
+    price: "price_1UH1BZJiiPJtcrv2SnMq1S99",
+    priceTest: "price_1UH1BZJiiPJtcrv2eANwM76a",
+    origin: "https://fx.techonni.com",
+    path: "/vip/"
+  }
 };
 module.exports = async (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -30,15 +35,16 @@ module.exports = async (req, res) => {
   if (!key) { res.status(500).send("Missing STRIPE_SECRET_KEY"); return; }
   const stripe = new Stripe(key);
   const origin = product.origin || "https://shop.techonni.com";
+  const price = key.startsWith("sk_test") && product.priceTest ? product.priceTest : product.price;
   try {
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
-      line_items: [{ price: product.price, quantity: 1 }],
+      line_items: [{ price, quantity: 1 }],
       success_url: origin + product.path + "?paid=1",
       cancel_url: origin + product.path,
       customer_creation: "always",
       invoice_creation: { enabled: true },
-      billing_address_collection: "auto",
+      billing_address_collection: "auto"
     });
     res.writeHead(303, { Location: session.url });
     res.end();
