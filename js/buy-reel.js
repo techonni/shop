@@ -99,13 +99,11 @@
   function card(id) {
     var name = luxuryName(id);
     return (
-      '<li><div class="print-card"><figure class="print-plate"><video class="print-shot" muted loop playsinline autoplay preload="auto" poster="' +
+      '<li><div class="print-card"><figure class="print-plate"><img class="print-shot" src="' +
       thumb(id) +
-      '"><source src="' +
-      videoUrl(id) +
-      '" type="video/mp4" /><source src="' +
-      driveVideoUrl(id) +
-      '" type="video/mp4" /></video></figure><p class="print-name">' +
+      '" alt="' +
+      name +
+      '" loading="lazy" /></figure><p class="print-name">' +
       name +
       '</p><p class="print-meta">€4.90</p><a class="buy" href="' +
       CHECKOUT +
@@ -188,7 +186,6 @@
     for (var i = 0; i < slice.length; i++) html += card(slice[i]);
     var grid = document.getElementById("grid-reels");
     grid.innerHTML = html;
-    armVideos(grid);
     renderPager();
     window.scrollTo(0, 0);
   }
