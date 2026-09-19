@@ -2,7 +2,7 @@
   var PAGE = 24;
   var CHECKOUT = "https://shop-nu-ten-29.vercel.app/api/checkout?sku=reel-single";
   var FOLDERS = ["essente", "ma", "viral"];
-  var state = {};
+  var state = { ids: [], i: 0 };
   var seenId = Object.create(null);
   var seenThumb = Object.create(null);
 
@@ -44,18 +44,17 @@
       '" data-sku="reel-single" data-eur="4.90">Buy reel</a></div></li>'
     );
   }
-  function render(slug) {
-    var s = state[slug];
+  function render() {
     var html = "";
     var added = 0;
-    while (s.i < s.ids.length && added < PAGE) {
-      html += card(s.ids[s.i]);
-      s.i += 1;
+    while (state.i < state.ids.length && added < PAGE) {
+      html += card(state.ids[state.i]);
+      state.i += 1;
       added += 1;
     }
-    if (html) document.getElementById("grid-" + slug).insertAdjacentHTML("beforeend", html);
-    if (s.i >= s.ids.length) {
-      var btn = document.querySelector('[data-more="' + slug + '"]');
+    if (html) document.getElementById("grid-reels").insertAdjacentHTML("beforeend", html);
+    if (state.i >= state.ids.length) {
+      var btn = document.querySelector("[data-more]");
       if (btn) btn.hidden = true;
     }
   }
@@ -64,15 +63,16 @@
       return r.json();
     })
     .then(function (data) {
+      var ids = [];
       FOLDERS.forEach(function (slug) {
-        state[slug] = { ids: uniqueList(data[slug] || []), i: 0 };
-        render(slug);
+        ids = ids.concat(uniqueList(data[slug] || []));
       });
+      state = { ids: ids, i: 0 };
+      render();
     });
   document.addEventListener("click", function (e) {
     var btn = e.target.closest("[data-more]");
     if (!btn) return;
-    var slug = btn.getAttribute("data-more");
-    if (state[slug]) render(slug);
+    render();
   });
 })();
