@@ -6,7 +6,7 @@
 <meta name="description" content="Art prints from Techonni. Print-ready JPEGs built to hang at 50 × 70 cm. Bundle €99. Luxury faceless reels €4.90." />
 <link rel="canonical" href="https://shop.techonni.com/" />
 <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-<link rel="stylesheet" href="./hub.css?v=30" />
+<link rel="stylesheet" href="./hub.css?v=31" />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
@@ -14,7 +14,7 @@
 <main class="flex-1"><div class="shop-col page">
 <div class="product-row hero-row">
   <figure class="print-plate">
-    <video class="print-shot" muted loop playsinline autoplay poster="./reels/preview-01.jpg"><source src="./reels/preview-01.mp4" type="video/mp4" /></video>
+    <video class="print-shot" id="hero-reel" muted loop playsinline autoplay preload="auto" poster="./reels/preview-01.jpg"><source src="./reels/preview-01.mp4" type="video/mp4" /></video>
   </figure>
   <div class="product-copy">
     <h1 class="hero-title">Luxury faceless reels.</h1>
@@ -47,4 +47,27 @@
 </section>
 </div></main>
 <footer class="site-footer"><div class="shop-col footer-inner"><div class="social-pills"><a class="pill" href="https://x.com/techonni" target="_blank" rel="noopener noreferrer">X</a></div><p class="copyright">© 2026 Techonni</p></div></footer>
+<script>
+(function () {
+  var v = document.getElementById("hero-reel");
+  if (!v) return;
+  var i = 1;
+  var max = 8;
+  v.muted = true;
+  v.loop = false;
+  v.playsInline = true;
+  function pad(n) { return n < 10 ? "0" + n : "" + n; }
+  function load(n) {
+    var p = pad(n);
+    v.poster = "./reels/preview-" + p + ".jpg";
+    v.src = "./reels/preview-" + p + ".mp4";
+    v.play().catch(function () {});
+  }
+  v.addEventListener("ended", function () {
+    i = i >= max ? 1 : i + 1;
+    load(i);
+  });
+  v.play().catch(function () {});
+})();
+</script>
 </body></html>
