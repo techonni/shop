@@ -1,6 +1,10 @@
 {
   "name": "techonni-shop",
   "private": true,
+  "scripts": {
+    "dev": "node dev-server.js",
+    "start": "node dev-server.js"
+  },
   "dependencies": {
     "stripe": "^18.0.0"
   }

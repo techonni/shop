@@ -1,0 +1,17 @@
+{
+  "name": "Techonni shop",
+  "install": "if [ -f package.json ]; then npm install; else cd repos/shop && npm install; fi",
+  "terminals": [
+    {
+      "name": "dev",
+      "command": "if [ -f package.json ]; then npm run dev; else cd repos/shop && npm run dev; fi",
+      "description": "Local dev server: serves the static shop and the /api serverless functions on port 3000."
+    }
+  ],
+  "ports": [
+    {
+      "name": "dev",
+      "port": 3000
+    }
+  ]
+}
