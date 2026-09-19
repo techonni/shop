@@ -39,7 +39,7 @@
     return (
       '<li><div class="print-card"><figure class="phone-plate"><img class="reel-shot" src="' +
       thumb(id) +
-      '" alt="Reel" loading="lazy" /><img class="phone-frame" src="../assets/iphone-chroma-overlay.png" alt="" /></figure><p class="print-name">Reel</p><p class="print-meta">€4.90</p><a class="buy" href="' +
+      '" alt="Reel" loading="lazy" /><img class="phone-frame" src="../assets/iphone-green-overlay.png" alt="" /></figure><p class="print-name">Reel</p><p class="print-meta">€4.90</p><a class="buy" href="' +
       CHECKOUT +
       '" data-sku="reel-single" data-eur="4.90">Buy reel</a></div></li>'
     );
