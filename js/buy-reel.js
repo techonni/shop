@@ -1,9 +1,39 @@
 (function () {
   var PAGE = 24;
   var CHECKOUT = "https://shop-nu-ten-29.vercel.app/api/checkout?sku=reel-single";
+  var FOLDERS = ["essente", "ma", "viral"];
   var state = {};
+  var seenId = Object.create(null);
+  var seenThumb = Object.create(null);
+
   function thumb(id) {
     return "https://drive.google.com/thumbnail?id=" + encodeURIComponent(id) + "&sz=w540";
+  }
+  function sourceUrls(id) {
+    return [
+      thumb(id),
+      "https://lh3.googleusercontent.com/d/" + id + "=w540",
+      "https://drive.google.com/uc?id=" + encodeURIComponent(id) + "&export=download",
+    ];
+  }
+  function claim(id) {
+    if (!id || seenId[id]) return false;
+    var urls = sourceUrls(id);
+    for (var i = 0; i < urls.length; i++) {
+      if (seenThumb[urls[i]]) return false;
+    }
+    seenId[id] = true;
+    for (var j = 0; j < urls.length; j++) seenThumb[urls[j]] = true;
+    return true;
+  }
+  function uniqueList(ids) {
+    var out = [];
+    if (!ids) return out;
+    for (var i = 0; i < ids.length; i++) {
+      var id = String(ids[i] || "").trim();
+      if (claim(id)) out.push(id);
+    }
+    return out;
   }
   function card(id) {
     return (
@@ -15,14 +45,16 @@
     );
   }
   function render(slug) {
-    var ids = state[slug].ids;
-    var i = state[slug].i;
-    var end = Math.min(i + PAGE, ids.length);
+    var s = state[slug];
     var html = "";
-    for (; i < end; i++) html += card(ids[i]);
-    state[slug].i = i;
-    document.getElementById("grid-" + slug).insertAdjacentHTML("beforeend", html);
-    if (i >= ids.length) {
+    var added = 0;
+    while (s.i < s.ids.length && added < PAGE) {
+      html += card(s.ids[s.i]);
+      s.i += 1;
+      added += 1;
+    }
+    if (html) document.getElementById("grid-" + slug).insertAdjacentHTML("beforeend", html);
+    if (s.i >= s.ids.length) {
       var btn = document.querySelector('[data-more="' + slug + '"]');
       if (btn) btn.hidden = true;
     }
@@ -32,8 +64,8 @@
       return r.json();
     })
     .then(function (data) {
-      ["essente", "ma", "viral"].forEach(function (slug) {
-        state[slug] = { ids: data[slug] || [], i: 0 };
+      FOLDERS.forEach(function (slug) {
+        state[slug] = { ids: uniqueList(data[slug] || []), i: 0 };
         render(slug);
       });
     });
