@@ -1,1 +1,1 @@
-Compressed 2.8s previews live in `reels/essente/`, `reels/ma/`, and `reels/viral/`. Full catalog IDs are in `catalog/*-ids.json`. Do not commit raw 4K sources.
+Preview clips (~2.8s, muted) for the iPhone screen hole. Full library stays on Drive; do not commit raw 4K.
