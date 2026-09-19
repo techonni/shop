@@ -6,7 +6,7 @@
 <meta name="description" content="Luxury lifestyle faceless reels. €4.90 each, or 10 for €29.90." />
 <link rel="canonical" href="https://shop.techonni.com/" />
 <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-<link rel="stylesheet" href="./hub.css?v=17" />
+<link rel="stylesheet" href="./hub.css?v=18" />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
@@ -22,13 +22,9 @@
     <div class="phone">
       <div class="phone-notch"></div>
       <div class="phone-screen">
-        <!-- TODO: replace placeholder stills with muted looping reel clips (~2.75–3s). See reels/placeholders/README.md -->
-        <div class="reel-slides">
-          <img src="./reels/placeholders/01.svg" alt="" />
-          <img src="./reels/placeholders/02.svg" alt="" />
-          <img src="./reels/placeholders/03.svg" alt="" />
-        </div>
-        <video class="reel-clip" muted loop playsinline poster="./reels/placeholders/01.svg"></video>
+        <video class="reel-clip" id="hero-reel" muted playsinline autoplay poster="./reels/poster-01.jpg">
+          <source src="./reels/clip-01.mp4" type="video/mp4" />
+        </video>
       </div>
     </div>
   </div>
@@ -42,7 +38,9 @@
           <div class="phone phone-sm">
             <div class="phone-notch"></div>
             <div class="phone-screen">
-              <img src="./reels/placeholders/01.svg" alt="Single reel preview" />
+              <video class="reel-clip" muted loop playsinline autoplay poster="./reels/poster-01.jpg">
+                <source src="./reels/clip-01.mp4" type="video/mp4" />
+              </video>
             </div>
           </div>
         </figure>
@@ -57,7 +55,9 @@
           <div class="phone phone-sm">
             <div class="phone-notch"></div>
             <div class="phone-screen">
-              <img src="./reels/placeholders/02.svg" alt="Bundle preview" />
+              <video class="reel-clip" muted loop playsinline autoplay poster="./reels/poster-02.jpg">
+                <source src="./reels/clip-02.mp4" type="video/mp4" />
+              </video>
             </div>
           </div>
         </figure>

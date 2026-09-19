@@ -1,11 +1,7 @@
-# Reel placeholders
+# Reels
 
-TODO: swap these stills for muted looping reel clips (~2.75–3 seconds) inside `.phone-screen` on the shop home (`index.html`).
+Phone mockup plays muted 2.80s web previews from ESSENTE:
 
-Expected drop-in:
-
-- `reels/clip-01.mp4`
-- `reels/clip-02.mp4`
-- `reels/clip-03.mp4`
-
-Keep `muted`, `loop`, `playsinline`, and `autoplay` on the `<video>` in the phone frame.
+1. `clip-01.mp4` — `_yau4l(MP4)_1.mp4` (`1j8SnVRFNQFj91tCl-6V3oXQvnvl_1t7g`)
+2. `clip-02.mp4` — `-- G Wagons for Breakfast --(MP4).mp4` (`1TP7Gv9Bqcilzd-mMWQv9pZ7mwqpATl2v`)
+3. `clip-03.mp4` — `_yau4l(MP4).mp4` (`1rtZ6v2m4KoATneiADwPbubWSPXL2HwJb`)

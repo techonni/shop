@@ -22,7 +22,7 @@ Existing print and FX SKUs in `api/checkout.js` stay as they are.
 
 ## Reels
 
-Placeholder stills loop in the phone frame. Swap in real muted ~2.75–3s clips — see `reels/placeholders/README.md`.
+Muted 2.80s clips in the phone mockup (`reels/clip-01.mp4` … `clip-03.mp4`), compressed from the three ESSENTE files Dario shared.
 
 ## DNS (Hostinger)
 
