@@ -2,6 +2,44 @@
   var PAGE = 24;
   var CHECKOUT = "https://shop-nu-ten-29.vercel.app/api/checkout?sku=reel-single";
   var FOLDERS = ["essente", "ma", "viral"];
+  var NAMES = [
+    "Midnight Riviera",
+    "Villa Quiet",
+    "Gold Hour Yacht",
+    "Amalfi Dawn",
+    "Desert G-Wagon",
+    "Lake Como Night",
+    "Private Jet Tarmac",
+    "Marble Lobby",
+    "Saint-Tropez Dusk",
+    "Rooftop Infinity",
+    "Silk Suite",
+    "Coastal Estate",
+    "Monaco Morning",
+    "Black Yacht Deck",
+    "Palm Springs Drive",
+    "Quiet Penthouse",
+    "Alpine Chalet",
+    "Capri Terrace",
+    "Neon Lobby",
+    "Ivory Villa",
+    "Lagoon Runabout",
+    "City Penthouse",
+    "Garden Courtyard",
+    "Sunset Highway",
+    "White Sand Club",
+    "Steel Garage",
+    "Linen Bedroom",
+    "Harbor Lights",
+    "Olive Grove",
+    "Crystal Pool",
+    "Night Concierge",
+    "Warm Limousine",
+    "Glass Pavilion",
+    "Upper East Dawn",
+    "Mykonos White",
+    "Velvet Lounge",
+  ];
   var state = { ids: [], i: 0 };
   var seenId = Object.create(null);
   var seenThumb = Object.create(null);
@@ -9,11 +47,14 @@
   function thumb(id) {
     return "https://drive.google.com/thumbnail?id=" + encodeURIComponent(id) + "&sz=w540";
   }
+  function videoUrl(id) {
+    return "https://drive.google.com/uc?export=download&id=" + encodeURIComponent(id);
+  }
   function sourceUrls(id) {
     return [
       thumb(id),
       "https://lh3.googleusercontent.com/d/" + id + "=w540",
-      "https://drive.google.com/uc?id=" + encodeURIComponent(id) + "&export=download",
+      videoUrl(id),
     ];
   }
   function claim(id) {
@@ -35,11 +76,28 @@
     }
     return out;
   }
+  function hashId(id) {
+    var h = 2166136261;
+    for (var i = 0; i < id.length; i++) {
+      h ^= id.charCodeAt(i);
+      h = Math.imul(h, 16777619);
+    }
+    return h >>> 0;
+  }
+  function luxuryName(id) {
+    var h = hashId(id);
+    return NAMES[h % NAMES.length];
+  }
   function card(id) {
+    var name = luxuryName(id);
     return (
-      '<li><div class="print-card"><figure class="phone-plate"><img class="reel-shot" src="' +
+      '<li><div class="print-card"><figure class="print-plate"><video class="print-shot" muted loop playsinline autoplay preload="metadata" poster="' +
       thumb(id) +
-      '" alt="Reel" loading="lazy" /><img class="phone-frame" src="../assets/iphone-green-overlay.png" alt="" /></figure><p class="print-name">Reel</p><p class="print-meta">€4.90</p><a class="buy" href="' +
+      '"><source src="' +
+      videoUrl(id) +
+      '" type="video/mp4" /></video></figure><p class="print-name">' +
+      name +
+      '</p><p class="print-meta">€4.90</p><a class="buy" href="' +
       CHECKOUT +
       '" data-sku="reel-single" data-eur="4.90">Buy reel</a></div></li>'
     );
