@@ -1,0 +1,5 @@
+{
+  "buildCommand": "mkdir -p .vercel-out && cp offline/index.html offline/404.html offline/robots.txt .vercel-out/",
+  "outputDirectory": ".vercel-out",
+  "framework": null
+}

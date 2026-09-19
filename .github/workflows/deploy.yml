@@ -20,6 +20,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Collect draft-only files
+        run: |
+          mkdir _site
+          cp offline/index.html offline/404.html offline/robots.txt _site/
+          cp CNAME _site/
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
@@ -27,7 +32,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
 
   deploy:
     needs: build
