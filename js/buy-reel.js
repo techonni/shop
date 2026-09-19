@@ -110,40 +110,6 @@
       '" data-sku="reel-single" data-eur="4.90">Buy reel</a></div></li>'
     );
   }
-  function armVideos(root) {
-    var nodes = (root || document).querySelectorAll("video.print-shot");
-    for (var i = 0; i < nodes.length; i++) {
-      (function (v) {
-        v.muted = true;
-        v.defaultMuted = true;
-        v.loop = true;
-        v.playsInline = true;
-        v.setAttribute("playsinline", "");
-        v.setAttribute("webkit-playsinline", "");
-        var play = function () {
-          var p = v.play();
-          if (p && p.catch) p.catch(function () {});
-        };
-        v.addEventListener("canplay", play);
-        if ("IntersectionObserver" in window) {
-          if (!v._io) {
-            v._io = new IntersectionObserver(
-              function (entries) {
-                entries.forEach(function (e) {
-                  if (e.isIntersecting) play();
-                  else v.pause();
-                });
-              },
-              { threshold: 0.25 }
-            );
-            v._io.observe(v);
-          }
-        } else {
-          play();
-        }
-      })(nodes[i]);
-    }
-  }
   function pageCount() {
     return Math.max(1, Math.ceil(state.ids.length / PAGE));
   }
