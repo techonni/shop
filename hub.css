@@ -47,9 +47,6 @@ a{color:inherit;text-decoration:none}
 .buy:hover{opacity:.85}
 .hero-row{margin-bottom:.5rem}
 .hero-row .hero-title{margin:0}
-.device{position:relative;height:100%;aspect-ratio:1502/2864;max-width:100%}
-.device-frame{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:2;pointer-events:none;display:block}
-.device-reel{position:absolute;z-index:1;left:11.45%;top:31.08%;width:77.16%;height:54.33%;object-fit:cover;background:#111}
 .print-grid .buy{margin-top:.85rem}
 .social-pills .buy{margin-top:0;height:2.25rem;padding:0 1.1rem;font-size:.8125rem}
 .reel-shot{display:block;height:100%;width:auto;aspect-ratio:9/16;max-width:100%;object-fit:cover;object-position:center;background:#111}
