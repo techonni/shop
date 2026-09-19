@@ -1,0 +1,25 @@
+{
+  "currency": "eur",
+  "checkoutPath": "/api/checkout",
+  "notes": "Create matching Stripe Prices later. Set Vercel env STRIPE_PRICE_REEL_SINGLE and STRIPE_PRICE_REEL_BUNDLE_10 to the live price IDs. Do not invent price IDs or charge until Dario authorizes.",
+  "products": [
+    {
+      "sku": "reel-single",
+      "name": "Luxury faceless reel",
+      "description": "One lifestyle faceless reel. Digital download.",
+      "amount": 490,
+      "amountLabel": "€4.90",
+      "stripePriceEnv": "STRIPE_PRICE_REEL_SINGLE",
+      "successPath": "/"
+    },
+    {
+      "sku": "reel-bundle-10",
+      "name": "Luxury faceless reels — 10 pack",
+      "description": "Bundle of 10 lifestyle faceless reels. Digital download.",
+      "amount": 2990,
+      "amountLabel": "€29.90",
+      "stripePriceEnv": "STRIPE_PRICE_REEL_BUNDLE_10",
+      "successPath": "/"
+    }
+  ]
+}

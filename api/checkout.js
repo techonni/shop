@@ -1,5 +1,5 @@
 const Stripe = require("stripe");
-const PRODUCTS = {
+const PRINTS_AND_FX = {
   "bauhaus-01": { price: "price_1UGluZJiiPJtcrv29jVWdRPw", origin: "https://shop.techonni.com", path: "/prints/bauhaus-print-01/" },
   "bauhaus-02": { price: "price_1UGluaJiiPJtcrv2ZUs1Zblp", origin: "https://shop.techonni.com", path: "/prints/bauhaus-print-02/" },
   "bauhaus-03": { price: "price_1UGzfoJiiPJtcrv22R3MO8Ad", origin: "https://shop.techonni.com", path: "/prints/bauhaus-print-03/" },
@@ -20,12 +20,48 @@ const PRODUCTS = {
   "bauhaus-bundle": { price: "price_1UH0OPJiiPJtcrv2ExHC2rGT", origin: "https://shop.techonni.com", path: "/prints/bundle/" },
   "fx-vip": { price: "price_1UH1BZJiiPJtcrv2SnMq1S99", origin: "https://fx.techonni.com", path: "/vip/" }
 };
+
+const REELS = {
+  "reel-single": {
+    origin: "https://shop.techonni.com",
+    path: "/",
+    amount: 490,
+    name: "Luxury faceless reel",
+    priceEnv: "STRIPE_PRICE_REEL_SINGLE"
+  },
+  "reel-bundle-10": {
+    origin: "https://shop.techonni.com",
+    path: "/",
+    amount: 2990,
+    name: "Luxury faceless reels — 10 pack",
+    priceEnv: "STRIPE_PRICE_REEL_BUNDLE_10"
+  }
+};
+
+function reelProduct(sku) {
+  const spec = REELS[sku];
+  if (!spec) return null;
+  const price = process.env[spec.priceEnv] || "";
+  return {
+    price: price,
+    origin: spec.origin,
+    path: spec.path,
+    amount: spec.amount,
+    name: spec.name,
+    pending: !price
+  };
+}
+
 module.exports = async (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   if (req.method === "OPTIONS") { res.status(204).end(); return; }
   const sku = String((req.query && req.query.sku) || "");
-  const product = PRODUCTS[sku];
+  const product = PRINTS_AND_FX[sku] || reelProduct(sku);
   if (!product) { res.status(400).send("Unknown product"); return; }
+  if (product.pending) {
+    res.status(503).send("Reel checkout is prepared (€" + (product.amount / 100).toFixed(2) + ") but Stripe prices are not live yet.");
+    return;
+  }
   const key = process.env.STRIPE_LIVE_KEY || process.env.STRIPE_SECRET_KEY;
   if (!key) { res.status(500).send("Missing STRIPE_LIVE_KEY"); return; }
   const stripe = new Stripe(key);
