@@ -1,5 +1,5 @@
 (function () {
-  var PAGE = 24;
+  var PAGE = 9;
   var CHECKOUT = "https://shop-nu-ten-29.vercel.app/api/checkout?sku=reel-single";
   var FOLDERS = ["essente", "ma", "viral"];
   var NAMES = [
@@ -40,7 +40,7 @@
     "Mykonos White",
     "Velvet Lounge",
   ];
-  var state = { ids: [], i: 0 };
+  var state = { ids: [], page: 1 };
   var seenId = Object.create(null);
   var seenThumb = Object.create(null);
 
@@ -146,22 +146,51 @@
       })(nodes[i]);
     }
   }
-  function render() {
+  function pageCount() {
+    return Math.max(1, Math.ceil(state.ids.length / PAGE));
+  }
+  function currentPage() {
+    var n = parseInt((location.hash.match(/p=(\d+)/) || [])[1], 10);
+    if (!n || n < 1) n = state.page || 1;
+    return Math.min(n, pageCount());
+  }
+  function renderPager() {
+    var nav = document.getElementById("reel-pager");
+    if (!nav) return;
+    var pages = pageCount();
+    var cur = state.page;
     var html = "";
-    var added = 0;
-    while (state.i < state.ids.length && added < PAGE) {
-      html += card(state.ids[state.i]);
-      state.i += 1;
-      added += 1;
+    for (var n = 1; n <= pages; n++) {
+      html +=
+        '<button class="pager-btn' +
+        (n === cur ? " is-current" : "") +
+        '" type="button" data-page="' +
+        n +
+        '"' +
+        (n === cur ? ' aria-current="page"' : "") +
+        ">" +
+        n +
+        "</button>";
     }
-    if (html) {
-      document.getElementById("grid-reels").insertAdjacentHTML("beforeend", html);
-      armVideos(document.getElementById("grid-reels"));
+    nav.innerHTML = html;
+  }
+  function renderPage(page) {
+    var pages = pageCount();
+    if (page < 1) page = 1;
+    if (page > pages) page = pages;
+    state.page = page;
+    if (location.hash !== "#p=" + page) {
+      history.replaceState(null, "", "#p=" + page);
     }
-    if (state.i >= state.ids.length) {
-      var btn = document.querySelector("[data-more]");
-      if (btn) btn.hidden = true;
-    }
+    var start = (page - 1) * PAGE;
+    var slice = state.ids.slice(start, start + PAGE);
+    var html = "";
+    for (var i = 0; i < slice.length; i++) html += card(slice[i]);
+    var grid = document.getElementById("grid-reels");
+    grid.innerHTML = html;
+    armVideos(grid);
+    renderPager();
+    window.scrollTo(0, 0);
   }
   fetch("../catalog/drive-ids.json")
     .then(function (r) {
@@ -172,12 +201,15 @@
       FOLDERS.forEach(function (slug) {
         ids = ids.concat(uniqueList(data[slug] || []));
       });
-      state = { ids: ids, i: 0 };
-      render();
+      state = { ids: ids, page: 1 };
+      renderPage(currentPage());
     });
   document.addEventListener("click", function (e) {
-    var btn = e.target.closest("[data-more]");
+    var btn = e.target.closest("[data-page]");
     if (!btn) return;
-    render();
+    renderPage(parseInt(btn.getAttribute("data-page"), 10));
+  });
+  window.addEventListener("hashchange", function () {
+    if (state.ids.length) renderPage(currentPage());
   });
 })();
