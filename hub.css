@@ -51,7 +51,7 @@ a{color:inherit;text-decoration:none}
 .social-pills .buy{margin-top:0;height:2.25rem;padding:0 1.1rem;font-size:.8125rem}
 .reel-shot{display:block;width:100%;height:100%;object-fit:cover;object-position:center;background:#111}
 .phone-plate{position:relative;width:100%;max-width:13.5rem;aspect-ratio:1268/2682;margin:0 auto;padding:0;overflow:hidden;background:transparent}
-.phone-plate .reel-shot{position:absolute;top:1.55%;left:3.3%;width:93.4%;height:96.9%;max-width:none;aspect-ratio:auto;object-fit:cover;border-radius:11%/5.5%;z-index:1;background:#000}
+.phone-plate .reel-shot{position:absolute;top:-0.4%;left:1.2%;width:97.6%;height:100.8%;max-width:none;aspect-ratio:auto;object-fit:cover;object-position:center;border-radius:18%/8.5%;z-index:1;background:#000;transform:scale(1.045);transform-origin:center}
 .phone-frame{position:absolute;inset:0;z-index:2;width:100%;height:100%;object-fit:contain;pointer-events:none;user-select:none}
 .hero-row .phone-plate{grid-column:1;max-width:14.5rem;margin:0}
 .page .buy + .buy{margin-left:.5rem}
