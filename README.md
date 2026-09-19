@@ -1,32 +1,19 @@
 # Techonni shop
 
-Luxury lifestyle faceless reels on `shop.techonni.com`. GitHub Pages.
+Luxury lifestyle faceless reels on `shop.techonni.com`.
 
-Buy Reels is the shop home: €4.90 per reel, or €29.90 for 10.
+Buy Reels is home: €4.90 per reel, €29.90 for 10.
+
+## Collections
+
+Drive parent `LUXURY 4K VIDEOS` (`12PJSdiD-iEjst_suZdVLwxwh-xVbUpKT`):
+
+- Essente (`1lOy4HSe49sMJWtiOGKR_Oz0JKV287zU-`)
+- MA (`15g9JGaDxPMylGigh6NLRWl4NiHKUqbSx`)
+- Viral Aetherium (`15NJvlqenZi8LT4EmWJRJ-JTqwSXkNwa_`)
+
+Git holds compressed ~2.8s previews only (`reels/{essente,ma,viral}/`). Full 4K files stay on Drive. ID lists: `catalog/*-ids.json`.
 
 ## Checkout
 
-Stripe products for reels are **not live**. Catalog: `catalog/reels.json`.
-
-When authorized, create Stripe Prices in EUR:
-
-- `reel-single` — 490 (one reel)
-- `reel-bundle-10` — 2990 (bundle of 10)
-
-Set Vercel env:
-
-- `STRIPE_PRICE_REEL_SINGLE`
-- `STRIPE_PRICE_REEL_BUNDLE_10`
-
-Existing print and FX SKUs in `api/checkout.js` stay as they are.
-
-## Reels
-
-Muted 2.80s clips in the phone mockup (`reels/clip-01.mp4` … `clip-03.mp4`), compressed from the three ESSENTE files Dario shared.
-
-## DNS (Hostinger)
-
-- Host: `shop`
-- Points to: `techonni.github.io`
-
-GitHub Pages custom domain: `shop.techonni.com`.
+Stripe reel prices are **not live**. Set Vercel env `STRIPE_PRICE_REEL_SINGLE` and `STRIPE_PRICE_REEL_BUNDLE_10` when authorized. Print and FX SKUs in `api/checkout.js` stay as they are.

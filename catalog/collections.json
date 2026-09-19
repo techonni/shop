@@ -1,0 +1,231 @@
+{
+  "parent": {
+    "id": "12PJSdiD-iEjst_suZdVLwxwh-xVbUpKT",
+    "title": "LUXURY 4K VIDEOS"
+  },
+  "currency": "eur",
+  "single": {
+    "sku": "reel-single",
+    "amount": 490,
+    "label": "\u20ac4.90"
+  },
+  "bundle": {
+    "sku": "reel-bundle-10",
+    "amount": 2990,
+    "label": "\u20ac29.90"
+  },
+  "collections": [
+    {
+      "slug": "essente",
+      "name": "Essente",
+      "folderId": "1lOy4HSe49sMJWtiOGKR_Oz0JKV287zU-",
+      "count": 3358
+    },
+    {
+      "slug": "ma",
+      "name": "MA",
+      "folderId": "15g9JGaDxPMylGigh6NLRWl4NiHKUqbSx",
+      "count": 4247
+    },
+    {
+      "slug": "viral",
+      "name": "Viral Aetherium",
+      "folderId": "15NJvlqenZi8LT4EmWJRJ-JTqwSXkNwa_",
+      "count": 5224
+    }
+  ],
+  "previews": [
+    {
+      "slug": "essente",
+      "n": 1,
+      "src": "./reels/essente/01.mp4",
+      "poster": "./reels/essente/01.jpg",
+      "bytes": 392242,
+      "driveId": "1TP7Gv9Bqcilzd-mMWQv9pZ7mwqpATl2v"
+    },
+    {
+      "slug": "essente",
+      "n": 2,
+      "src": "./reels/essente/02.mp4",
+      "poster": "./reels/essente/02.jpg",
+      "bytes": 117226,
+      "driveId": "1LyqCatKaSp727pcXYFD8xIbEskBpQ87G"
+    },
+    {
+      "slug": "essente",
+      "n": 3,
+      "src": "./reels/essente/03.mp4",
+      "poster": "./reels/essente/03.jpg",
+      "bytes": 395659,
+      "driveId": "1bYUy0Pji_7MpN-PxKK_i7QuZ7A-vONzJ"
+    },
+    {
+      "slug": "essente",
+      "n": 4,
+      "src": "./reels/essente/04.mp4",
+      "poster": "./reels/essente/04.jpg",
+      "bytes": 393420,
+      "driveId": "1OFm_HmMY_v35wPzlL0yYj0kCIUJoIage"
+    },
+    {
+      "slug": "essente",
+      "n": 5,
+      "src": "./reels/essente/05.mp4",
+      "poster": "./reels/essente/05.jpg",
+      "bytes": 191200,
+      "driveId": "1mZMmghTnP89BuuiNX2B7J51JgJdc_XSc"
+    },
+    {
+      "slug": "essente",
+      "n": 6,
+      "src": "./reels/essente/06.mp4",
+      "poster": "./reels/essente/06.jpg",
+      "bytes": 422558,
+      "driveId": "1R1LSWOesaCSk9Hx997MO5WrMiJxSIpE4"
+    },
+    {
+      "slug": "essente",
+      "n": 7,
+      "src": "./reels/essente/07.mp4",
+      "poster": "./reels/essente/07.jpg",
+      "bytes": 297841,
+      "driveId": "1i7JUZrwxgl1ilGgpdxL4b-KQSIwIebYa"
+    },
+    {
+      "slug": "essente",
+      "n": 8,
+      "src": "./reels/essente/08.mp4",
+      "poster": "./reels/essente/08.jpg",
+      "bytes": 48755,
+      "driveId": "1GkGvMsuxcd2vA7MTVklvF2djHGor7HAe"
+    },
+    {
+      "slug": "ma",
+      "n": 1,
+      "src": "./reels/ma/01.mp4",
+      "poster": "./reels/ma/01.jpg",
+      "bytes": 134054,
+      "driveId": "1fqk96fy4AYcwQSYlyI9Don2cFMBwqhPl"
+    },
+    {
+      "slug": "ma",
+      "n": 2,
+      "src": "./reels/ma/02.mp4",
+      "poster": "./reels/ma/02.jpg",
+      "bytes": 144072,
+      "driveId": "1JbyEgUkIaeQnjp6YC8mXesxtlOCDKSNx"
+    },
+    {
+      "slug": "ma",
+      "n": 3,
+      "src": "./reels/ma/03.mp4",
+      "poster": "./reels/ma/03.jpg",
+      "bytes": 168395,
+      "driveId": "1jWNErgE98u8tuTg5YEAWZdzQ0JXublOV"
+    },
+    {
+      "slug": "ma",
+      "n": 4,
+      "src": "./reels/ma/04.mp4",
+      "poster": "./reels/ma/04.jpg",
+      "bytes": 211877,
+      "driveId": "1LJQdKVyZJ-Cfhm31mNqI08hnqsZWzgad"
+    },
+    {
+      "slug": "ma",
+      "n": 5,
+      "src": "./reels/ma/05.mp4",
+      "poster": "./reels/ma/05.jpg",
+      "bytes": 154311,
+      "driveId": "1IkUGlAHaxzi0fhWOsMINBskVGPxdmYQ0"
+    },
+    {
+      "slug": "ma",
+      "n": 6,
+      "src": "./reels/ma/06.mp4",
+      "poster": "./reels/ma/06.jpg",
+      "bytes": 261904,
+      "driveId": "16Z0PXM64Sif86BXk08wlRnHuoYAVA9DS"
+    },
+    {
+      "slug": "ma",
+      "n": 7,
+      "src": "./reels/ma/07.mp4",
+      "poster": "./reels/ma/07.jpg",
+      "bytes": 462018,
+      "driveId": "1TbMp9L757U04TeO9DAGHHPbZjFhmOc-K"
+    },
+    {
+      "slug": "ma",
+      "n": 8,
+      "src": "./reels/ma/08.mp4",
+      "poster": "./reels/ma/08.jpg",
+      "bytes": 127559,
+      "driveId": "1tMhVNU0F4jy4GzZmbiQD1dKzFxnBNFTO"
+    },
+    {
+      "slug": "viral",
+      "n": 1,
+      "src": "./reels/viral/01.mp4",
+      "poster": "./reels/viral/01.jpg",
+      "bytes": 403092,
+      "driveId": "1dkxpwoev0-ghQthw_mAOAt4tM3Unhc49"
+    },
+    {
+      "slug": "viral",
+      "n": 2,
+      "src": "./reels/viral/02.mp4",
+      "poster": "./reels/viral/02.jpg",
+      "bytes": 556435,
+      "driveId": "14CHS1oBLtFu05ZsTQsOas4VpyITHCM6u"
+    },
+    {
+      "slug": "viral",
+      "n": 3,
+      "src": "./reels/viral/03.mp4",
+      "poster": "./reels/viral/03.jpg",
+      "bytes": 356053,
+      "driveId": "1q1KWfUYq3N0C3eVkyzl_DbZo6m065l07"
+    },
+    {
+      "slug": "viral",
+      "n": 4,
+      "src": "./reels/viral/04.mp4",
+      "poster": "./reels/viral/04.jpg",
+      "bytes": 269580,
+      "driveId": "18trK8tI42vP1JXUoxWM6VX5oHwg-Mga1"
+    },
+    {
+      "slug": "viral",
+      "n": 5,
+      "src": "./reels/viral/05.mp4",
+      "poster": "./reels/viral/05.jpg",
+      "bytes": 435694,
+      "driveId": "1qC46WEvQUDk9AzGHt_ZvumY2sQka_xoP"
+    },
+    {
+      "slug": "viral",
+      "n": 6,
+      "src": "./reels/viral/06.mp4",
+      "poster": "./reels/viral/06.jpg",
+      "bytes": 246254,
+      "driveId": "10hovkMCA5-moydsKf0gf3qBlf-_LB9pZ"
+    },
+    {
+      "slug": "viral",
+      "n": 7,
+      "src": "./reels/viral/07.mp4",
+      "poster": "./reels/viral/07.jpg",
+      "bytes": 299336,
+      "driveId": "10b-UfN4don45GoJorxjihshL1Zqsg6W7"
+    },
+    {
+      "slug": "viral",
+      "n": 8,
+      "src": "./reels/viral/08.mp4",
+      "poster": "./reels/viral/08.jpg",
+      "bytes": 324347,
+      "driveId": "1DTNP1X1oL8IOILGITUNH8MO5RQfelb7I"
+    }
+  ]
+}

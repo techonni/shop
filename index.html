@@ -3,27 +3,27 @@
 <head>
 <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Buy Reels · Techonni</title>
-<meta name="description" content="Luxury lifestyle faceless reels. €4.90 each, or 10 for €29.90." />
+<meta name="description" content="Luxury lifestyle faceless reels in three collections. €4.90 each, or 10 for €29.90." />
 <link rel="canonical" href="https://shop.techonni.com/" />
 <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-<link rel="stylesheet" href="./hub.css?v=18" />
+<link rel="stylesheet" href="./hub.css?v=19" />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 </head>
-<body>
+<body data-base="./">
 <header class="site-header"><div class="shop-col header-inner"><a href="https://www.techonni.com/" class="logo-link" aria-label="Techonni home"><svg class="logo-mark" width="28" height="28" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="8" r="2.2" fill="currentColor"/><circle cx="28.5" cy="11.5" r="2.2" fill="currentColor"/><circle cx="32" cy="20" r="2.2" fill="currentColor"/><circle cx="28.5" cy="28.5" r="2.2" fill="currentColor"/><circle cx="20" cy="32" r="2.2" fill="currentColor"/><circle cx="11.5" cy="28.5" r="2.2" fill="currentColor"/><circle cx="8" cy="20" r="2.2" fill="currentColor"/><circle cx="11.5" cy="11.5" r="2.2" fill="currentColor"/><circle cx="20" cy="20" r="2.6" fill="currentColor"/></svg></a><nav class="header-nav"><a href="./" class="nav-link is-current">Buy Reels</a></nav></div></header>
 <main class="flex-1"><div class="shop-col page">
 <section class="buy-hero">
   <div class="hero">
     <h1 class="hero-title">Luxury faceless reels.</h1>
-    <p class="hero-bio">Lifestyle clips for a quiet feed. One reel €4.90, or ten for €29.90.</p>
+    <p class="hero-bio">Three collections — Essente, MA, and Viral Aetherium. One reel €4.90, or ten for €29.90.</p>
     <a class="buy" href="#buy">Buy Reels</a>
   </div>
   <div class="phone-stage" aria-hidden="true">
     <div class="phone">
       <div class="phone-notch"></div>
       <div class="phone-screen">
-        <video class="reel-clip" id="hero-reel" muted playsinline autoplay poster="./reels/poster-01.jpg">
-          <source src="./reels/clip-01.mp4" type="video/mp4" />
+        <video class="reel-clip" id="hero-reel" muted playsinline autoplay poster="./reels/essente/01.jpg">
+          <source src="./reels/essente/01.mp4" type="video/mp4" />
         </video>
       </div>
     </div>
@@ -38,9 +38,7 @@
           <div class="phone phone-sm">
             <div class="phone-notch"></div>
             <div class="phone-screen">
-              <video class="reel-clip" muted loop playsinline autoplay poster="./reels/poster-01.jpg">
-                <source src="./reels/clip-01.mp4" type="video/mp4" />
-              </video>
+              <video class="reel-clip" muted loop playsinline autoplay poster="./reels/essente/01.jpg"><source src="./reels/essente/01.mp4" type="video/mp4" /></video>
             </div>
           </div>
         </figure>
@@ -55,9 +53,7 @@
           <div class="phone phone-sm">
             <div class="phone-notch"></div>
             <div class="phone-screen">
-              <video class="reel-clip" muted loop playsinline autoplay poster="./reels/poster-02.jpg">
-                <source src="./reels/clip-02.mp4" type="video/mp4" />
-              </video>
+              <video class="reel-clip" muted loop playsinline autoplay poster="./reels/viral/01.jpg"><source src="./reels/viral/01.mp4" type="video/mp4" /></video>
             </div>
           </div>
         </figure>
@@ -69,7 +65,12 @@
   </ul>
   <p class="page-lead" id="checkout-note">Digital download. Stripe Checkout when prices are live.</p>
 </section>
+<section class="section" id="collections">
+  <h2 class="section-title">Collections</h2>
+  <p class="page-lead">The library is three Drive folders — thousands of reels. Short previews play here; full files are not in git.</p>
+  <ul class="print-grid collection-grid" id="collection-cards"></ul>
+</section>
 </div></main>
-<footer class="site-footer"><div class="shop-col footer-inner"><div class="social-pills"><a class="buy" href="#buy">Buy Reels</a><a class="pill" href="https://x.com/techonni" target="_blank" rel="noopener noreferrer">X</a></div><p class="copyright">© 2026 Techonni</p></div></footer>
-<script src="./js/reels-checkout.js"></script>
+<footer class="site-footer"><div class="shop-col footer-inner"><div class="social-pills"><a class="buy" href="#buy">Buy Reels</a><a class="pill" href="./collections/essente/">Essente</a><a class="pill" href="./collections/ma/">MA</a><a class="pill" href="./collections/viral/">Viral Aetherium</a><a class="pill" href="https://x.com/techonni" target="_blank" rel="noopener noreferrer">X</a></div><p class="copyright">© 2026 Techonni</p></div></footer>
+<script src="./js/reels-shop.js"></script>
 </body></html>
